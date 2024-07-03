@@ -19,6 +19,7 @@ const StylizedField = styled.input`
     color: #D9D9D9;
     font-weight: 400;
     font-size: clamp(12px, 4vw, 20px);
+    white-space: nowrap;
     line-height: 20px;
 `;
 

@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 
 const StyledListItem = styled.li`
-    font-size: 24px;
+    font-size: clamp(12px, 4vw, 24px);
+    white-space: nowrap;
     line-height: 29px;
     margin-bottom: 30px;
     cursor: pointer;

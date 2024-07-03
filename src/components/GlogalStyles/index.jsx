@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-import GandhiSansRegular from './fonts/GandhiSans-Regular.otf'
-import GandhiSansBold from './fonts/GandhiSans-Bold.otf'
+import GandhiSansRegular from '@components/GlogalStyles/fonts/GandhiSans-Regular.otf'
+import GandhiSansBold from '@components/GlogalStyles/fonts/GandhiSans-Bold.otf'
 
 export const GlobalStyles = createGlobalStyle`
     @font-face {
