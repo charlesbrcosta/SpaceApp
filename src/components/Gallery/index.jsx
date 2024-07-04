@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { Title } from '@components/Title';
 import { Tags } from '@components/Gallery/Tags'; 
 import { Popular } from '@components/Gallery/Popular';
-import {Image} from './Image';
+import { Image } from './Image';
 
 const ContainerGallery = styled.div`
     display: flex;
@@ -22,7 +22,7 @@ const ImagesContainer = styled.section`
 `;
 
 
-export const Gallery = ({ photos = [], onChangeSelectedPhoto }) => {
+export const Gallery = ({ photos = [], onChangeSelectedPhoto, toggleFavorite }) => {
     return (
         <>
             <Tags />
@@ -31,8 +31,9 @@ export const Gallery = ({ photos = [], onChangeSelectedPhoto }) => {
                     <Title>Navegue pela galeria</Title>
                     <ImagesContainer>
                         {photos.map(photo => <Image 
-                            requestZoom={onChangeSelectedPhoto}
                             key={photo.id} 
+                            requestZoom={onChangeSelectedPhoto}
+                            toggleFavorite={toggleFavorite}
                             photo={photo} />)
                         }
                     </ImagesContainer>

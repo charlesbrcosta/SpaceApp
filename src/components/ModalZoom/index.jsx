@@ -13,7 +13,7 @@ const Overlay = styled.div`
 `;
 
 const StyledDialog = styled.dialog`
-    position: absolute;
+   position: absolute;
     top: 294px;
     background: transparent;
     padding: 0;
@@ -22,20 +22,22 @@ const StyledDialog = styled.dialog`
     display: flex;
     justify-content: center;
     form {
-        position: relative;
-        top: 20px;
-        right: 60px;
+        button {
+            position: relative;
+            top: 20px;
+            right: 60px;
+        }
     }
 `;
 
 
-export const ModalZoom = ({ photo, close }) => {
+export const ModalZoom = ({ photo, close, toggleFavorite }) => {
     return (
         <>
             {photo && <>
             <Overlay />
                 <StyledDialog open={!!photo} onClose={close}>
-                    <Image photo={photo} expanded={true} />
+                    <Image photo={photo} expanded={true} toggleFavorite={toggleFavorite}/>
                     <form method="dialog">
                         <ButtonIcon>
                             <img src='/icons/fechar.png' alt='Icone de fechar janela' />

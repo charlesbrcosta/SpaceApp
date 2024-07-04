@@ -38,6 +38,22 @@ const GalleryContent = styled.section`
 export const App = () => {
   const [photosGallery, setPhotosGallery] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  const toggleFavorite = (photo) => {
+    if(photo.id === selectedPhoto?.id){
+      setSelectedPhoto({
+        ...selectedPhoto,
+        favorite: !selectedPhoto.favorite
+      })
+    }
+    setPhotosGallery(photosGallery.map(photoTheGallery => {
+      return {
+        ...photoTheGallery,
+        favorite: photoTheGallery.id === photo.id ? !photo.favorite : photoTheGallery.favorite
+      }
+    }));
+  }
+
   return (
     <GradientBackground>
       <GlobalStyles />
@@ -50,11 +66,18 @@ export const App = () => {
               text='A galeria mais completa de fotos do espaço!'
               backgroundImage={bannerBackground}
             />
-            <Gallery onChangeSelectedPhoto={photo => setSelectedPhoto(photo)} photos={photosGallery} />
+            <Gallery onChangeSelectedPhoto={photo => setSelectedPhoto(photo)} 
+              toggleFavorite={toggleFavorite}
+              photos={photosGallery}               
+            />
           </GalleryContent>
         </MainContainer>
       </AppContainer>
-      <ModalZoom photo={selectedPhoto}/>
+      <ModalZoom 
+        photo={selectedPhoto}
+        close={() => setSelectedPhoto(null)}
+        toggleFavorite={toggleFavorite}
+        />
     </GradientBackground>
   )
 }
