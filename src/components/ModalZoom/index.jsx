@@ -13,7 +13,7 @@ const Overlay = styled.div`
 `;
 
 const StyledDialog = styled.dialog`
-   position: absolute;
+    position: absolute;
     top: 294px;
     background: transparent;
     padding: 0;
@@ -29,7 +29,6 @@ const StyledDialog = styled.dialog`
         }
     }
 `;
-
 
 export const ModalZoom = ({ photo, close, toggleFavorite }) => {
     return (
